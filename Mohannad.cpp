@@ -136,7 +136,7 @@ void game(string name)
     winner(letter, name);
 }
 bool checker = true;
-void playagain(string name)
+void playagain(string name, int player_score, int AI_score)
 {
     string again = "yes";
     cout << "Do you want to play again?\n";
@@ -149,7 +149,10 @@ void playagain(string name)
     {
         checker = false;
         system("cls");
-        showpage();
+        cout << "\t\t\t\t\t\tGame Over!\n\n";
+        cout << "\t\t\t\t\t\tFinal Score : \n\n";
+        cout << "\t\t\t\t\t\t" << name << " Score => " << player_score << "\n\n";
+        cout << "\t\t\t\t\t\tAI Score => " << AI_score << "\n\n";
     }
 }
 int main()
@@ -166,7 +169,7 @@ int main()
     game(name);
     while (checker)
     {
-        playagain(name);
+        playagain(name, player_score, AI_score);
     }
     return 0;
 }
